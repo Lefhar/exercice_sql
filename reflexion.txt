@@ -1,0 +1,5 @@
+- on commence par remplir fournis car la table principale ensuite on remplis vente 
+- ensuite on rempli produit  ensuite on rempli ligcom 
+-fournis est lié a vente et entcom par numfou
+-vente est lier à produit par codart
+- et entcom et ligcom sont lier par numcom
