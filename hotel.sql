@@ -51,7 +51,7 @@ CREATE TABLE  reservation(
         cl_num    Int NOT NULL,
         re_date_debut datetime ,
         re_date_fin datetime ,
-        re_date datetime ,
+        re_date_reservation datetime ,
         cl_montant_arhes    Int NOT NULL,
         re_prix_total DECIMAL NOT NULL
     ,CONSTRAINT reservation_chambre_FK FOREIGN KEY (ch_num) REFERENCES chambre(ch_num)
