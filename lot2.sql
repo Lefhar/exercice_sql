@@ -30,4 +30,4 @@ SELECT cha_numero, cha_capacite, hot_id, hot_sta_id, hot_nom, sta_id, sta_nom fr
 
 --12 - Afficher les réservations avec le nom du client et le nom de l’hôtel Le résultat doit faire apparaître le nom du client, le nom de l’hôtel, 
 --la date de début du séjour et la durée du séjour SELECT DATEDIFF( date1, date2 );
-SELECT res_cli_id, cli_id, res_date_debut, res_date_fin,DATEDIFF( res_date_fin,  res_date_debut), res_cha_id, res_id, cha_id, hot_id, hot_nom, cli_nom FROM `client`, reservation, hotel JOIN chambre ON cha_hot_id =hot_id
+SELECT  res_date_debut,DATEDIFF( res_date_fin,  res_date_debut), hot_nom, cli_nom FROM `client` join reservation on res_cli_id = cli_id  JOIN chambre ON cha_id = res_cha_id join hotel on hot_id = cha_hot_id
