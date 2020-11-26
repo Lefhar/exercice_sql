@@ -10,8 +10,7 @@ SELECT COUNT(numcom) AS 'Nombre de commande'  , COUNT(DISTINCT numfou) AS 'Fourn
 
 -- 4 Editer les produits ayant un stock inférieur ou égal au stock d'alerte et dont la quantité annuelle est inférieur est inférieure à1000 
 --(informations à fournir : n° produit, libelléproduit, stock, stockactuel d'alerte, quantitéannuelle)
-
-
+select codat,libart,stkphy,stkale,qteann from produit where stkphy <= stkale and qteann < 1000
 
 
 
