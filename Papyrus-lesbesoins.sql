@@ -20,3 +20,8 @@ SELECT substring(posfou,1,2),nomfou FROM fournis WHERE substring(posfou,1,2) in 
 
 --6 Quelles sont les commandes passées au mois de mars et avril?
 select datcom as 'commandes passées au mois de mars et avril' from ENTCOM WHERE MONTH(datcom) = 3 or MONTH(datcom) = 4 
+
+--7 Quelles sont les commandes du jour qui ont des observations particulières ?(Affichage numéro de commande, date de commande) 
+-- note seul jour c'est le 23 qui est présent en base 
+SELECT numcom, DAY(datcom) FROM entcom where obscom !="" and DAY(datcom)= "23"
+
