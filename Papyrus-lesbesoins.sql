@@ -13,8 +13,10 @@ SELECT COUNT(numcom) AS 'Nombre de commande'  , COUNT(DISTINCT numfou) AS 'Fourn
 select codat,libart,stkphy,stkale,qteann from produit where stkphy <= stkale and qteann < 1000
 
 
-
+--5 Quels sont les fournisseurs situés dans les départements 75 78 92 77 ? 
+--L’affichage (département, nom fournisseur) sera effectué par département décroissant, puis par ordre alphabétique
+SELECT substring(posfou,1,2),nomfou FROM fournis WHERE substring(posfou,1,2) in (75,78,77,92) ORDER BY posfou DESC, nomfou ASC
 
 
 --6 Quelles sont les commandes passées au mois de mars et avril?
-SELECT ligcom.numcom, derliv, entcom.numcom, datcom FROM ligcom JOIN entcom ON entcom.numcom = ligcom.numcom WHERE (MONTH(ligcom.derliv) BETWEEN 3 and 4) and (MONTH(entcom.datcom) BETWEEN 3 AND 4) 
+select datcom as 'commandes passées au mois de mars et avril' from ENTCOM WHERE MONTH(datcom) = 3 or MONTH(datcom) = 4 
