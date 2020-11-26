@@ -10,3 +10,4 @@ SELECT cha_capacite, cha_numero FROM chambre where cha_capacite > 1
 SELECT cli_nom,cli_ville from client where cli_ville != 'londre'
 -- 6 - Afficher la liste des hôtels située sur la ville de Bretou et possédant une catégorie>3 Le résultat doit faire apparaître le nom de l'hôtel, ville et la catégorie
 SELECT hot_nom, hot_ville, hot_categorie from hotel  where  hot_ville ='Bretou' and hot_categorie > 3
+SELECT cha_capacite, cha_numero FROM chambre where cha_capacite > 1
