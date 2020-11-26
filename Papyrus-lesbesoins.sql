@@ -25,3 +25,11 @@ select datcom as 'commandes passées au mois de mars et avril' from ENTCOM WHERE
 -- note seul jour c'est le 23 qui est présent en base 
 SELECT numcom, DAY(datcom) FROM entcom where obscom !="" and DAY(datcom)= "23"
 
+-- 8 Lister le total de chaque commande par total décroissant (Affichage numéro de commande et total)
+SELECT numcom AS 'Numéro de commande', SUM(qtecde * priuni )as total FROM ligcom GROUP BY numcom  ORDER BY total desc
+
+-- 9 Lister les commandes dont le total est supérieur à 10000€; on exclura dans le calcul du total les articles commandés en quantité supérieure ou égale à 1000.
+--(Affichage numéro de commande et total)
+SELECT numcom AS 'Numéro de commande', SUM(qtecde * priuni )as total FROM ligcom where qtecde <1000 GROUP BY numcom HAVING SUM(qtecde  * priuni)>10000
+
+-- 10 Lister les commandes par nom fournisseur (Afficher le nom du fournisseur, le numéro de commande et la date)
