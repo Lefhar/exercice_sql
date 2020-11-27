@@ -33,3 +33,7 @@ SELECT numcom AS 'Numéro de commande', SUM(qtecde * priuni )as total FROM ligco
 SELECT numcom AS 'Numéro de commande', SUM(qtecde * priuni )as total FROM ligcom where qtecde <1000 GROUP BY numcom HAVING SUM(qtecde  * priuni)>10000
 
 -- 10 Lister les commandes par nom fournisseur (Afficher le nom du fournisseur, le numéro de commande et la date)
+SELECT nomfou AS 'Fournisseur' , entcom.numcom AS 'Numéro de commande', datcom AS 'Date' FROM ligcom join entcom on entcom.numcom = ligcom.numcom join fournis ON fournis.numfou =  entcom.numfou
+
+--11 Sortir les produits des commandes ayant le mot "urgent' en observation?(Afficher le numéro de commande, le nom du fournisseur, le libellé du produit et le sous total= quantité commandée * Prix unitaire)
+SELECT entcom.numcom AS 'numéro de commande', fournis.nomfou AS 'nom du fournisseur' , produit.libart AS 'libellé du produit', SUM(qtecde * priuni) as 'Sous total'  FROM ligcom JOIN produit ON produit.codart = ligcom.codart JOIN entcom ON entcom.numcom = ligcom.numcom JOIN fournis ON fournis.numfou = entcom.numfou GROUP BY entcom.numcom,nomfou,libart
