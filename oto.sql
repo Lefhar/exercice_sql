@@ -12,7 +12,7 @@ CREATE TABLE customer(
    cus_city VARCHAR(50),
    cus_phone int(10),
    PRIMARY KEY(cus_id)
-)ENGINE=InnoDB;
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE orders(
    ord_id INT,
@@ -21,7 +21,7 @@ CREATE TABLE orders(
    cus_id INT NOT NULL,
    PRIMARY KEY(ord_id),
    FOREIGN KEY(cus_id) REFERENCES customer(cus_id)
-)ENGINE=InnoDB;
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE orders_details(
    ode_id INT,
@@ -30,13 +30,13 @@ CREATE TABLE orders_details(
    PRIMARY KEY(ode_id),
    UNIQUE(ord_id),
    FOREIGN KEY(ord_id) REFERENCES orders(ord_id)
-)ENGINE=InnoDB;
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE service(
    ser_id INT,
    ser_name VARCHAR(50),
    PRIMARY KEY(ser_id)
-)ENGINE=InnoDB;
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE cars(
    car_id INT,
@@ -45,12 +45,12 @@ CREATE TABLE cars(
    ser_id INT NOT NULL,
    PRIMARY KEY(car_id),
    FOREIGN KEY(ser_id) REFERENCES service(ser_id)
-)ENGINE=InnoDB;
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE garage(
    gar_id VARCHAR(50),
    PRIMARY KEY(gar_id)
-)ENGINE=InnoDB;
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE seller(
    sel_id INT,
@@ -62,7 +62,7 @@ CREATE TABLE seller(
    ser_id INT,
    PRIMARY KEY(sel_id),
    FOREIGN KEY(ser_id) REFERENCES service(ser_id)
-)ENGINE=InnoDB;
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE accessory(
    car_id INT,
@@ -71,7 +71,7 @@ CREATE TABLE accessory(
    PRIMARY KEY(car_id),
    FOREIGN KEY(car_id) REFERENCES cars(car_id),
    FOREIGN KEY(ode_id) REFERENCES orders_details(ode_id)
-)ENGINE=InnoDB;
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE options(
    car_id INT,
@@ -80,7 +80,7 @@ CREATE TABLE options(
    PRIMARY KEY(car_id),
    FOREIGN KEY(car_id) REFERENCES cars(car_id),
    FOREIGN KEY(ode_id) REFERENCES orders_details(ode_id)
-)ENGINE=InnoDB;
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE maintenance(
    car_id INT,
@@ -91,7 +91,7 @@ CREATE TABLE maintenance(
    FOREIGN KEY(car_id) REFERENCES cars(car_id),
    FOREIGN KEY(ode_id) REFERENCES orders_details(ode_id),
    FOREIGN KEY(gar_id) REFERENCES garage(gar_id)
-)ENGINE=InnoDB;
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE repair(
    car_id INT,
@@ -100,4 +100,4 @@ CREATE TABLE repair(
    PRIMARY KEY(car_id),
    FOREIGN KEY(car_id) REFERENCES cars(car_id),
    FOREIGN KEY(gar_id) REFERENCES garage(gar_id)
-)ENGINE=InnoDB;
+)ENGINE=InnoDB DEFAULT CHARSET=utf8;
